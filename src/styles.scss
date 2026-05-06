@@ -1,9 +1,14 @@
-@import "fonts";
+@use "fonts";
 
 :root{
   --dark-color: #000;
   --light-color: #fff;
   --primary-color: #ae7aff;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body{
@@ -20,6 +25,7 @@ body{
   font-size: 12px;
   font-weight: 700;
   margin-right: 4px;
+  height: 24px;
 }
 
 .btn{
@@ -35,4 +41,8 @@ body{
   font-size: 18px;
   line-height: 24px;
   font-weight: 800;
+}
+.subtitle{
+  font-size: 14px;
+  line-height: 20px;
 }
