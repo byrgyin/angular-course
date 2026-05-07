@@ -6,18 +6,10 @@ import {Profile} from './data/interfaces/profile.interface';
 
 @Component({
   selector: 'app-root',
-  imports: [ProfileCard],
+  imports: [ProfileCard, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  profileService = inject(ProfileService);
-  profiles:Profile[] = [];
 
-  constructor() {
-    this.profileService.getTestAccounts()
-      .subscribe(val => {
-      this.profiles = val;
-    })
-  }
 }
