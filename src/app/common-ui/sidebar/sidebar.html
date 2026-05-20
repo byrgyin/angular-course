@@ -1,1 +1,19 @@
-<p>sidebar works!</p>
+<img
+  src="/assets/svg/logo-small.svg"
+  alt=""
+  class="ml16 mb20"
+>
+<nav class="mb20">
+  <ul class="main-menu-list">
+    @for (item of menuItems; track item){
+      <li>
+        <button class="menu-item">
+          <svg [icon]="item.icon"></svg>
+          <span>{{item.label}}</span>
+        </button>
+      </li>
+    }
+  </ul>
+</nav>
+
+<p class="medium-text mb20">Подписчики</p>

@@ -6,7 +6,7 @@ import {Profile} from './data/interfaces/profile.interface';
 
 @Component({
   selector: 'app-root',
-  imports: [ProfileCard, RouterOutlet],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
