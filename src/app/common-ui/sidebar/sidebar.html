@@ -17,3 +17,17 @@
 </nav>
 
 <p class="medium-text mb20">Подписчики</p>
+
+
+@for (profile of subscribers$ | async; track profile.id){
+  <app-subscriber-card
+    [profile]="profile"
+  ></app-subscriber-card>
+}
+
+<div class="mb20 to-subscribers">
+  <a [routerLink]="['/subscribes']"
+    class="to-subscribers-link mediim-text"
+  >Все подписчики</a>
+  <svg icon="arrow" class="to-subscribers-icon"></svg>
+</div>

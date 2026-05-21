@@ -1,15 +1,30 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {SvgIcon} from '../svg-icon/svg-icon';
+import {SubscriberCard} from './subscriber-card/subscriber-card';
+import {RouterLink} from '@angular/router';
+import {ProfileService} from '../../data/sevices/profile.service';
+import {AsyncPipe, JsonPipe} from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
   imports: [
-    SvgIcon
+    SvgIcon,
+    SubscriberCard,
+    RouterLink,
+    AsyncPipe,
+    JsonPipe
   ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
 })
 export class Sidebar {
+
+  profileService = inject(ProfileService);
+
+  subscribers$ = this.profileService.getSubscribeShortList();
+
+  me = this.profileService
+
   menuItems = [
     {
       label: 'Моя страница',
@@ -27,4 +42,8 @@ export class Sidebar {
       link: 'search'
     },
   ]
+  ngOnInit(): void {
+    this.profileService.getMe()
+  }
+
 }
