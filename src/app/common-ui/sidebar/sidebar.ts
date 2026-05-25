@@ -4,6 +4,8 @@ import {SubscriberCard} from './subscriber-card/subscriber-card';
 import {RouterLink} from '@angular/router';
 import {ProfileService} from '../../data/sevices/profile.service';
 import {AsyncPipe, JsonPipe} from '@angular/common';
+import {firstValueFrom} from 'rxjs';
+import {ImgUrlPipe} from '../../helpers/pipes/img-url';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,7 +14,8 @@ import {AsyncPipe, JsonPipe} from '@angular/common';
     SubscriberCard,
     RouterLink,
     AsyncPipe,
-    JsonPipe
+    JsonPipe,
+    ImgUrlPipe
   ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
@@ -20,10 +23,9 @@ import {AsyncPipe, JsonPipe} from '@angular/common';
 export class Sidebar {
 
   profileService = inject(ProfileService);
-
   subscribers$ = this.profileService.getSubscribeShortList();
 
-  me = this.profileService
+  me = this.profileService.me
 
   menuItems = [
     {
@@ -43,7 +45,7 @@ export class Sidebar {
     },
   ]
   ngOnInit(): void {
-    this.profileService.getMe()
+    firstValueFrom(this.profileService.getMe())
   }
 
 }

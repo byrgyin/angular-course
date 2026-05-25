@@ -1,6 +1,10 @@
 :host{
-  display: block;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding: 20px 12px;
+  background: var(--dark-color);
 }
 .main-menu-list{
   display: grid;
@@ -51,3 +55,32 @@
   height: 18px;
 }
 
+.sidebar__footer{
+  margin-top: auto;
+  background-color: var(--dark-hover-color);
+  border-radius: 2px;
+  padding: 4px 16px;
+  display: grid;
+  grid-template-columns: 32px 1fr 16px;
+  grid-gap: 12px;
+  align-items: center;
+  img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+  .username-text{
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+}
+.settings-btn{
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  svg{
+    width: 18px;
+    height: 18px;
+    color: var(--primary-color);
+  }
+}

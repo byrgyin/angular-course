@@ -5,11 +5,11 @@
 >
 <nav class="mb20">
   <ul class="main-menu-list">
-    @for (item of menuItems; track item){
+    @for (item of menuItems; track item) {
       <li>
         <button class="menu-item">
           <svg [icon]="item.icon"></svg>
-          <span>{{item.label}}</span>
+          <span>{{ item.label }}</span>
         </button>
       </li>
     }
@@ -19,7 +19,7 @@
 <p class="medium-text mb20">Подписчики</p>
 
 
-@for (profile of subscribers$ | async; track profile.id){
+@for (profile of subscribers$ | async; track profile.id) {
   <app-subscriber-card
     [profile]="profile"
   ></app-subscriber-card>
@@ -27,7 +27,20 @@
 
 <div class="mb20 to-subscribers">
   <a [routerLink]="['/subscribes']"
-    class="to-subscribers-link mediim-text"
+     class="to-subscribers-link mediim-text"
   >Все подписчики</a>
   <svg icon="arrow" class="to-subscribers-icon"></svg>
 </div>
+<footer class="sidebar__footer">
+  @if (me(); as me) {
+    @if (me.avatarUrl){
+      <img [src]="me.avatarUrl | imgUrl" alt="">
+    } @else {
+      <img src="/assets/images/rayn.png" alt="">
+    }
+    <div class="medium-text username-text">{{ me.username }}</div>
+    <a [routerLink]="['settings']" href="" class="settings-btn">
+      <svg icon="settings"></svg>
+    </a>
+  }
+</footer>
