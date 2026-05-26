@@ -3,6 +3,7 @@
 :root{
   --dark-color: #000;
   --light-color: #fff;
+  --light-transparent-color: rgba(255, 255, 255, 0.75);
   --primary-color: #ae7aff;
   --gray-color: #5f646d;
   --dark-hover-color: #161616;
@@ -112,4 +113,35 @@ body{
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
+}
+
+.tt-form-label{
+  display: flex;
+  flex-flow:column;
+  gap: 16px;
+  &__text{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--light-transparent-color);
+  }
+}
+
+.tt-form-input{
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--light-color);
+  border: none;
+  background: none;
+  border-bottom: 1px solid var(--light-color);
+  height: 33px;
+
+  &:focus-visible{
+    outline: 1px solid var(--primary-color);
+  }
+}
+.tt-form-textarea{
+  height: 84px;
+  resize: none;
 }

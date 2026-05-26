@@ -29,7 +29,7 @@
 
       <h3 class="h6 mb16">Навыки</h3>
       <ul class="stack-wrapper mb32">
-        @for (skill of ['123','123','123','123','123','2132']; track skill){
+        @for (skill of profile.stack; track skill){
           <li class="skill-tag">{{ skill }}</li>
         }
       </ul>

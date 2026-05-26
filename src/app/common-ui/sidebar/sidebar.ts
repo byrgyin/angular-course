@@ -14,7 +14,6 @@ import {ImgUrlPipe} from '../../helpers/pipes/img-url';
     SubscriberCard,
     RouterLink,
     AsyncPipe,
-    JsonPipe,
     ImgUrlPipe
   ],
   templateUrl: './sidebar.html',
@@ -31,7 +30,7 @@ export class Sidebar {
     {
       label: 'Моя страница',
       icon: 'home',
-      link: ''
+      link: 'profile/me',
     },
     {
       label: 'Чаты',

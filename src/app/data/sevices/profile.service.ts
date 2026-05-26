@@ -14,26 +14,33 @@ export class ProfileService {
 
   baseApiUrl: string = 'https://icherniakov.ru/yt-course/';
 
-  getTestAccounts(){
-   return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`)
+  getTestAccounts() {
+    return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`)
   }
 
-  getMe(){
+  getMe() {
     return this.http.get<Profile>(`${this.baseApiUrl}account/me`)
       .pipe(
         tap(res => this.me.set(res)),
       )
   }
 
-  getAccount(id:string){
+  getAccount(id: string) {
     return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`)
   }
 
-  getSubscribeShortList(subsAmount = 3){
+  getSubscribeShortList(subsAmount = 3) {
     return this.http.get<Pageble<Profile>>(`${this.baseApiUrl}account/subscribers/`)
       .pipe(
-        map(res=> res.items.slice(0,subsAmount))
+        map(res => res.items.slice(0, subsAmount))
       )
+  }
+
+  patchProfile(profile: Partial<Profile>) {
+    return this.http.patch<Profile>(
+      `${this.baseApiUrl}account/me`,
+      profile
+    )
   }
 
 }
