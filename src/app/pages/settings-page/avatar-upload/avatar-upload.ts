@@ -17,7 +17,7 @@ export class AvatarUpload {
 
   preview = signal<string>('/assets/images/avatar-placeholder.png');
 
-  avatar = null;
+  avatar: File | null = null;
 
   fileBrowserHandler(event: Event) {
     const file =(event.target as HTMLInputElement)?.files?.[0];
@@ -38,5 +38,6 @@ export class AvatarUpload {
     }
 
     reader.readAsDataURL(file);
+    this.avatar = file;
   }
 }
